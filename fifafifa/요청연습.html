@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>api따는법 연습입니당</title>
+</head>
+
+<body>
+  <h1>fifaho 선수검색 연습</h1>
+  <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
+    crossorigin="anonymous"></script>
+  <script>
+    const apikey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJYLUFwcC1SYXRlLUxpbWl0IjoiNTAwOjEwIiwiYWNjb3VudF9pZCI6IjYzNzc4Mjg0MyIsImF1dGhfaWQiOiIyIiwiZXhwIjoxNjkzNzQxMTM2LCJpYXQiOjE2NzgxODkxMzYsIm5iZiI6MTY3ODE4OTEzNiwic2VydmljZV9pZCI6IjQzMDAxMTQ4MSIsInRva2VuX3R5cGUiOiJBY2Nlc3NUb2tlbiJ9.I5cbbSO0A9d3ruBX5fzSd1b3KKRPHgk3Uu45HPfBdw8"
+    const nickname = '희꼬재추';
+    const data = { nickname, apikey };
+    $.ajax({
+      method: "GET",
+      url: `https://api.nexon.co.kr/fifaonline4/v1.0/users?nickname=${data.nickname}`,
+      headers: { Authorization: `${data.apikey}`}
+    })
+      .done(function (msg) {
+        console.log(msg);
+      });
+  </script>
+</body>
+
+</html>
